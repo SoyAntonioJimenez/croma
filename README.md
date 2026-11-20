@@ -2,7 +2,7 @@
 
 **Coloured folders for Windows, without breaking the look of Windows.**
 
-![Croma](docs/screenshot-main.png)
+![Croma](docs/screenshot.png)
 
 Okay, story time. I keep my stuff in folders. Lots of folders. And at some point my
 desktop turned into a wall of identical yellow rectangles where finding anything meant
