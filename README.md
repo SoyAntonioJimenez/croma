@@ -88,6 +88,44 @@ shipping a signed MSIX package.
 **Several folders:** select them in Explorer, *Shift*+right-click, pick a colour. Or drag
 them onto the Croma window and press the button.
 
+## The icons in Pictures (and the taskbar trick)
+
+On install, Croma writes all 40 colours as real `.ico` files into:
+
+```
+C:\Users\<you>\Pictures\FolderHue Icons\
+   01 - Original (yellow).ico
+   02 - Red.ico
+   03 - Crimson.ico
+   ...
+   40 - Rainbow.ico
+```
+
+Yes, the folder says *FolderHue* and not *Croma*. I renamed the app halfway through,
+the folder stayed. It annoys me too. (The app data lives in `%LOCALAPPDATA%\FolderHue`
+for the same reason.)
+
+Each file is a proper multi-resolution icon (16, 20, 24, 32, 40, 48, 64, 96, 128 and
+256 px), so it looks sharp on the taskbar, on the desktop and in big thumbnail views.
+They are regenerated every time you change colours, so they never go stale.
+
+**Why this matters:** Windows will not let any app recolour the File Explorer icon on the
+taskbar. That icon belongs to `explorer.exe`, always running, baked into a signed system
+binary. What you *can* do is give yourself a folder shortcut in the colour you want and pin
+that instead. Same thing visually, zero system files harmed:
+
+1. Right-click your shortcut (or make one to `explorer.exe`, or to any folder you like).
+2. **Properties → Change icon… → Browse…**
+3. Go to `Pictures\FolderHue Icons` and pick a colour, say `07 - Blue.ico`.
+4. OK, then right-click the shortcut → **Pin to taskbar**.
+
+You now have a folder in your colour sitting on the taskbar, and it opens Explorer
+normally. Croma cannot do that last pinning step for you: Windows 11 silently ignores
+programmatic pin requests (the shell even answers "success" and then does nothing, which
+I found out the fun way). Hence one manual right-click, once.
+
+![Icon](docs/icon.png)
+
 ## The stuff Windows will not let me do
 
 I'm being upfront because I spent too long on these:
