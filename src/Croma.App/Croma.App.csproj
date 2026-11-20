@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Croma</AssemblyName>
+    <RootNamespace>FolderHue.App</RootNamespace>
+    <ApplicationIcon>Assets\Croma.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Product>Croma</Product>
+    <Company>Croma</Company>
+    <Description>Cambia el color de las carpetas de Windows conservando el estilo del sistema.</Description>
+    <Copyright>MIT License</Copyright>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- WinForms only hosts the tray icon; its implicit usings collide with WPF's. -->
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Croma.Core\Croma.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Croma.ico" />
+    <None Update="Assets\Croma.ico" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,40 @@
+<Window x:Class="FolderHue.App.FolderPickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:FolderHue.App"
+        Title="Croma" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ShowInTaskbar="False" Topmost="True" SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" WindowStartupLocation="Manual" UseLayoutRounding="True">
+
+    <Border x:Name="Root" Background="#14161C" CornerRadius="16"
+            BorderBrush="#2A2E3B" BorderThickness="1" Padding="16">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="7" Opacity="0.55" Color="Black" Direction="270"/>
+        </Border.Effect>
+
+        <StackPanel>
+            <Grid Margin="2,0,2,13">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="HeaderIcon" Width="18" Height="18"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <TextBlock x:Name="HeaderText" Text="{loc:Text FolderColor}" FontSize="13" FontWeight="SemiBold"
+                               Margin="8,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock x:Name="SubText" FontSize="11" HorizontalAlignment="Right"
+                           VerticalAlignment="Center" Foreground="#98A0B0"
+                           TextTrimming="CharacterEllipsis" MaxWidth="230"/>
+            </Grid>
+
+            <WrapPanel x:Name="SwatchHost" Orientation="Horizontal" Width="430"/>
+
+            <Grid Margin="2,13,2,0">
+                <Button x:Name="OriginalButton" Content="{loc:Text BackToYellow}" Height="30" FontSize="11.5"
+                        HorizontalAlignment="Left" Style="{StaticResource GhostButton}"
+                        Click="Original_Click"/>
+                <Button x:Name="OpenAppButton" Content="{loc:Text OpenFolderHue}" Height="30" FontSize="11.5"
+                        HorizontalAlignment="Right" Style="{StaticResource GhostButton}"
+                        Click="OpenApp_Click"/>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>
